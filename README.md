@@ -1,6 +1,6 @@
 # GitHub to Sourcegraph
 
-A Chrome extension that adds a banner to GitHub repository pages with a link to view the same repository on Sourcegraph. This makes it easy to switch from GitHub to Sourcegraph for enhanced code navigation and searching.
+A browser extension for Chrome and Firefox that adds a banner to GitHub repository pages with a link to view the same repository on Sourcegraph. This makes it easy to switch from GitHub to Sourcegraph for enhanced code navigation and searching.
 
 ## Features
 
@@ -14,11 +14,24 @@ A Chrome extension that adds a banner to GitHub repository pages with a link to 
 
 ## Installation
 
+### Chrome
 1. Clone or download this repository
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" using the toggle in the top-right corner
 4. Click "Load unpacked" and select the directory containing this extension
 5. The extension should now be installed and active
+
+### Firefox
+1. Clone or download this repository
+2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
+3. Click "Load Temporary Add-on..." and select the manifest.json file in the extension directory
+4. The extension should now be installed and active temporarily (will be removed when Firefox is closed)
+
+For permanent installation in Firefox:
+1. Pack the extension into a .xpi file (zip the contents with .xpi extension)
+2. Go to `about:addons`
+3. Click the gear icon and select "Install Add-on From File..."
+4. Select the .xpi file you created
 
 ## Configuration
 

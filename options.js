@@ -3,13 +3,16 @@ const DEFAULT_GITHUB_URL = 'github.com';
 const DEFAULT_SOURCEGRAPH_URL = 'https://sourcegraph.com';
 const DEFAULT_GITHUB_ORGS = '';  // Empty string for all organizations
 
-// Save options to chrome.storage
+// Get browser API (works in both Chrome and Firefox)
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
+// Save options to storage
 function saveOptions() {
   const githubUrl = document.getElementById('githubUrl').value.trim() || DEFAULT_GITHUB_URL;
   const sourcegraphUrl = document.getElementById('sourcegraphUrl').value.trim() || DEFAULT_SOURCEGRAPH_URL;
   const githubOrgs = document.getElementById('githubOrgs').value.trim();
   
-  chrome.storage.sync.set({
+  browserAPI.storage.sync.set({
     githubUrl: githubUrl,
     sourcegraphUrl: sourcegraphUrl,
     githubOrgs: githubOrgs
@@ -26,9 +29,9 @@ function saveOptions() {
   });
 }
 
-// Restore options from chrome.storage
+// Restore options from storage
 function restoreOptions() {
-  chrome.storage.sync.get({
+  browserAPI.storage.sync.get({
     githubUrl: DEFAULT_GITHUB_URL,
     sourcegraphUrl: DEFAULT_SOURCEGRAPH_URL,
     githubOrgs: DEFAULT_GITHUB_ORGS

@@ -31,7 +31,10 @@ function initializeExtension() {
   
   // Then load any saved options asynchronously
   try {
-    chrome.storage.sync.get({
+    // Use browser API for Firefox or chrome API for Chrome
+    const storage = typeof browser !== 'undefined' ? browser.storage : chrome.storage;
+    
+    storage.sync.get({
       githubUrl: DEFAULT_GITHUB_URL,
       sourcegraphUrl: DEFAULT_SOURCEGRAPH_URL,
       githubOrgs: DEFAULT_GITHUB_ORGS
