@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub to Sourcegraph Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #24292e;
+    }
+    .option-group {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #d1d5da;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    textarea {
+      height: 100px;
+      font-family: monospace;
+    }
+    button {
+      background-color: #2ea44f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2c974b;
+    }
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      display: none;
+    }
+    .success {
+      background-color: #def7ec;
+      color: #03543e;
+      display: block;
+    }
+    .info {
+      font-size: 12px;
+      color: #586069;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GitHub to Sourcegraph Options</h1>
+  
+  <div class="option-group">
+    <label for="githubUrl">GitHub URL:</label>
+    <input type="text" id="githubUrl" placeholder="e.g., github.com or github.mycompany.com">
+    <div class="info">Specify the GitHub domain without protocol (default: 'github.com'). For GitHub Enterprise, use your custom domain.</div>
+  </div>
+  
+  <div class="option-group">
+    <label for="sourcegraphUrl">Sourcegraph URL:</label>
+    <input type="text" id="sourcegraphUrl" placeholder="e.g., https://sourcegraph.com">
+    <div class="info">Specify the Sourcegraph URL with protocol (default: 'https://sourcegraph.com'). For private instances, use your complete URL.</div>
+  </div>
+  
+  <div class="option-group">
+    <label for="githubOrgs">GitHub Organizations (one per line):</label>
+    <textarea id="githubOrgs" placeholder="Leave blank for all organizations or enter specific ones (e.g., Microsoft)"></textarea>
+    <div class="info">Enter GitHub organization names, one per line. <strong>Default: Works for all organizations (leave blank).</strong></div>
+  </div>
+  
+  <button id="save">Save Options</button>
+  <div id="status" class="status"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

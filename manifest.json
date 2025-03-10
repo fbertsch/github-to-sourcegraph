@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub to Sourcegraph",
+  "version": "3.0",
+  "description": "Adds a banner linking GitHub repositories to Sourcegraph",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://github.com/*", "*://*.github.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "host_permissions": [
+    "*://github.com/*",
+    "*://*.github.com/*"
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "options_page": "options.html"
+}
